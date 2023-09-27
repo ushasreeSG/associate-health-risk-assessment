@@ -10,8 +10,3 @@ class User(BaseModel, AuditCreateModel):
         {"schema": "application"},
     )
     email = Column("email", String(255), unique=True, nullable=False)
-    password = Column("password", String(255), nullable=False)
-    is_active = Column(Boolean, default=True)
-    first_name = Column(String(128), nullable=False)
-    last_name = Column(String(128), nullable=False)
-    phone = Column(String(64), nullable=True)
