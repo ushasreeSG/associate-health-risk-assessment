@@ -6,6 +6,7 @@ from app.models.user import User
 from app.models.questions import Questions
 
 
+
 class UserResponse(BaseModel, AuditCreateModel,AuditUpdateModel):
     __tablename__ = "user_response"
     __table_args__ = (

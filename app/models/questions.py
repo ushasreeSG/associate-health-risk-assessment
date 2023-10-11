@@ -23,4 +23,3 @@ class Questions(BaseModel, AuditCreateModel, AuditUpdateModel):
     category_id = Column(Integer, nullable=False)
 
 
-
