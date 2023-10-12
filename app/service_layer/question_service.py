@@ -31,15 +31,3 @@ class QuestionService(metaclass=Singleton):
 
         logger.info("Question created successfully")
         return {"status": "success", "message": "Question created successfully"}
-
-    @staticmethod
-    def get_all():
-        try:
-            question_details = QuestionDBOperations().get_all_questions()
-        except Exception as ex:
-            logger.error(f"Error: {ex}")
-            raise DBFetchFailureException(
-                f"An Error has occurred while fetching the questions"
-                )
-
-        return question_details

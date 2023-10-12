@@ -14,9 +14,3 @@ class QuestionDBOperations(metaclass=Singleton):
 		ops = CommonDbOperations(self.model)
 		user = ops.create_record(register_dict, commit)
 		return user
-
-	def get_all_questions(self):
-		ops = CommonDbOperations(self.model)
-		result = ops.get_all()
-		# return result[0] if result else None
-		return result

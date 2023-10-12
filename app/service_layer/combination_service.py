@@ -1,18 +1,14 @@
 from app.db_layer.sql_context import SqlContext
-from app.lib.custom_exceptions import DuplicateRecordError, CreateRecordException, DBFetchFailureException
-from app.lib.custom_exceptions import RecordNotFoundError
+from app.lib.custom_exceptions import CreateRecordException
 from app.lib.singleton import Singleton
 from app.db_layer import CombinationDBOperations
-from app.db_layer.common_ops import CommonDbOperations
-from app.models import Combinations
-from app.service_layer.common_service import CommonService
 from fastapi.logger import logger
 
 
 class CombinationService(metaclass=Singleton):
     @staticmethod
     def create_combination(combination):
-        logger.info("Calling the create_question service.")
+        logger.info("Calling the create combination service.")
         combination = combination.model_dump()
 
         combination = CombinationDBOperations().create_combination(register_dict=combination, commit=False)
