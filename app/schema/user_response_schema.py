@@ -8,8 +8,10 @@ class UserResponseModel(BaseModel):
     question_id: UUID = Field(..., title="Question id")
     response_flag: bool = Field(..., title="User Response")
 
+
 class UserRequestModel(BaseModel):
     request_list: List[UserResponseModel]
+
 
 class UserCreateRequest(BaseModel):
     email: str = Field(

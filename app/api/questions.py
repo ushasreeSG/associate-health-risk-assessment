@@ -1,10 +1,11 @@
-from fastapi import APIRouter
-
-from app.models import Questions
-from app.models.base_model import SessionLocal
+from uuid import UUID
 from app.schema import QuestionRequestModel
+from fastapi import APIRouter, Path
 from app.service_layer import QuestionService
 from fastapi.logger import logger
+from app.models import Questions
+
+from app.service_layer.common_service import CommonService
 
 question_router = APIRouter()
 
@@ -22,4 +23,11 @@ async def get_all_question():
     logger.info("Calling all questions ")
     response=QuestionService().get_all()
     return response
+
+
+@question_router.get("/question/{question_id}")
+async def get_question_by_id(question_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
+    user_details = CommonService.get_record_by_id(repo=Questions, record_id=question_id)
+
+    return user_details
 

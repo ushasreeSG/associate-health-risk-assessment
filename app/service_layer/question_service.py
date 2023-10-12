@@ -4,6 +4,7 @@ from app.lib.custom_exceptions import RecordNotFoundError
 from app.lib.singleton import Singleton
 from app.db_layer import QuestionDBOperations
 from app.db_layer.common_ops import CommonDbOperations
+from app.models import Questions
 from app.service_layer.common_service import CommonService
 from fastapi.logger import logger
 

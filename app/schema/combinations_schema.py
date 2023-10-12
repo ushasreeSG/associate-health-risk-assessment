@@ -8,7 +8,6 @@ class CombinationRequestBaseModel(BaseModel):
     combination_id: int = Field(..., le=12, ge=1)
     question_id: UUID = Field(...)
     combination_flag: bool = Field(..., title="True or False")
-    consequence: str = Field(..., title="Possible Consequence")
 
 
 class CombinationResponseModel(CombinationRequestBaseModel):

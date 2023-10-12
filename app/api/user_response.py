@@ -15,14 +15,15 @@ user_response_router = APIRouter()
 
 @user_response_router.post("/create_user")
 async def create_user(request: UserCreateRequest):
-    user= UserDBOperations().create(
+    user = UserDBOperations().create(
         register_dict=request, commit=False
-    )
+        )
     return user
+
 
 @user_response_router.post("/create")
 async def create_question(request: UserRequestModel):
-    logger.info("Calling the post question API.")
+    logger.info("Calling the post user response API.")
     # parsed_data = json.loads(request)
     parsed_data = request.request_list
     # response = QuestionService().get_all()
