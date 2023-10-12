@@ -15,10 +15,21 @@ class QuestionDBOperations(metaclass=Singleton):
 		user = ops.create_record(register_dict, commit)
 		return user
 
-	def get_user_by_email(self, email_id):
+	def get_all_questions(self):
 		ops = CommonDbOperations(self.model)
-		result = ops.get_by_col('email', email_id)
-		return result[0] if result else None
+		result = ops.get_all()
+		# return result[0] if result else None
+		return result
+
+		# Fetch one row at a time and yield the value
+		# while True:
+		# 	row = result.fetchone()
+		# 	if row is None:
+		# 		break
+
+
+
+
 
 
 class UserProfileOperations(metaclass=Singleton):

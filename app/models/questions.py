@@ -16,7 +16,7 @@ from enum import Enum
 class Questions(BaseModel, AuditCreateModel, AuditUpdateModel):
     __tablename__ = "questions"
     __table_args__ = (
-        {"schemas": "application"},
+        {"schema": "application"},
     )
     # __table_args__ = {'extend_existing': True}
     question = Column(String(512), unique=True, nullable=False)

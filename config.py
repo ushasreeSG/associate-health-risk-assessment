@@ -9,6 +9,7 @@ DB_PASSWORD = os.environ.get("DB_PASSWORD")
 DB_PORT = os.environ.get("DB_PORT")
 DB_HOST = os.environ.get("DB_HOST")
 DB_DRIVER = os.environ.get("DB_DRIVER")
+DB_SCHEMA = os.environ.get("DB_SCHEMA")
 
-SQLALCHEMY_DATABASE_URL = f"{DB_DRIVER}://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+SQLALCHEMY_DATABASE_URL = f"{DB_DRIVER}://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?options=-csearch_path%3D{DB_SCHEMA}"
 print(SQLALCHEMY_DATABASE_URL)

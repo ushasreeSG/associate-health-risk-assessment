@@ -12,10 +12,10 @@ class QuestionService(metaclass=Singleton):
     @staticmethod
     def create_question(question_request):
         logger.info("Calling the create_question service.")
-        question = question_request.model_dump()
+        # question = question_request.model_dump()
 
         question = QuestionDBOperations().create_question(
-            register_dict=question, commit=False
+            register_dict=question_request, commit=False
             )
 
         try:
@@ -32,19 +32,13 @@ class QuestionService(metaclass=Singleton):
         return {"status": "success", "message": "Question created successfully"}
 
     @staticmethod
-    def get_question_by_id(email):
+    def get_all():
         try:
-            user_details = UserDetailsViewOperations().get_user_details_by_email_id(email=email)
+            question_details = QuestionDBOperations().get_all_questions()
         except Exception as ex:
             logger.error(f"Error: {ex}")
             raise DBFetchFailureException(
-                f"An Error has occurred while fetching the user details with email id - {email}"
+                f"An Error has occurred while fetching the questions"
                 )
 
-        if not user_details:
-            logger.info(f"No user found with email id - {email}")
-            raise RecordNotFoundError(
-                f"No user found with email id - {email}"
-                )
-
-        return user_details
+        return question_details

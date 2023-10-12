@@ -17,7 +17,7 @@ from app.models.combinations import Combinations
 class Recommendation(BaseModel, AuditCreateModel, AuditUpdateModel):
     __tablename__ = "recommendation"
     __table_args__ = (
-        {"schemas": "application"},
+        {"schema": "application"},
     )
     consequence = Column(String(512), unique=True, nullable=False)
     recommendation = Column(String(512), unique=True, nullable=False)
