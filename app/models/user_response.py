@@ -10,7 +10,7 @@ from app.models.questions import Questions
 class UserResponse(BaseModel, AuditCreateModel,AuditUpdateModel):
     __tablename__ = "user_response"
     __table_args__ = (
-        {"schema": "application"},
+        {"schemas": "application"},
     )
     user_id = Column(UUID(as_uuid=True), ForeignKey(User.id))
     question_id = Column(UUID(as_uuid=True), ForeignKey(Questions.id))

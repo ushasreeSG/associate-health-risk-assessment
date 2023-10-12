@@ -17,7 +17,8 @@ from app.models.combinations import Combinations
 class Recommendation(BaseModel, AuditCreateModel, AuditUpdateModel):
     __tablename__ = "recommendation"
     __table_args__ = (
-        {"schema": "application"},
+        {"schemas": "application"},
     )
+    consequence = Column(String(512), unique=True, nullable=False)
     recommendation = Column(String(512), unique=True, nullable=False)
     combination_id = Column(UUID(as_uuid=True), ForeignKey(Combinations.id))

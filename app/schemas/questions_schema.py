@@ -12,6 +12,6 @@ class CategoryEnum(str, Enum):
     safety = "Safety"
 
 
-class QuestionsModel(BaseModel):
+class QuestionRequestModel(BaseModel):
     question: str = Field(..., min_length=5, max_length=255)
     category: int = Field(..., le=6, ge=0)
