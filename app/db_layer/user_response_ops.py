@@ -15,8 +15,8 @@ class UserResponseDBOperations(metaclass=Singleton):
         user_response = ops.create_record(register_dict, commit)
         return user_response
 
-    def get_all_user_response(self):
+    def get_all_user_response(self,user_id):
         ops = CommonDbOperations(self.model)
-        result = ops.get_all()
+        result = ops.get_by_any_id(user_id)
 
         return result

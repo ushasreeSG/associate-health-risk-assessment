@@ -19,3 +19,19 @@ class CommonService(metaclass=Singleton):
             raise RecordNotFoundError(error_msg)
 
         return record
+
+    @staticmethod
+    def get_all(repo):
+        model_name = repo.model.__name__
+
+        try:
+            record = repo.get_all_rows()
+        except Exception as ex:
+            error_msg = f"Unable to fetch {model_name} details."
+            raise DBFetchFailureException(error_msg)
+
+        if not record:
+            error_msg = f"No {model_name} exists with records "
+            raise RecordNotFoundError(error_msg)
+
+        return record

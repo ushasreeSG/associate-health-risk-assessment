@@ -21,4 +21,4 @@ class Recommendation(BaseModel, AuditCreateModel, AuditUpdateModel):
     )
     consequence = Column(String(512), unique=True, nullable=False)
     recommendation = Column(String(512), unique=True, nullable=False)
-    combination_id = Column(UUID(as_uuid=True), ForeignKey(Combinations.id))
+    recommendation_id = Column(Integer, unique=True, nullable=False)

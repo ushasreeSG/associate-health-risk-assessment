@@ -12,3 +12,5 @@ class RecommendationDBOperations(metaclass=Singleton):
         user = ops.create_record(register_dict, commit)
         return user
 
+
+

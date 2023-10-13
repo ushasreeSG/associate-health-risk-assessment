@@ -29,6 +29,16 @@ class CommonDbOperations:
 
 		return result.all()
 
+	def get_by_any_id(self,column_id):
+		result = self.query.where(
+			self.model.column_id == str(column_id)
+		)
+
+		with SqlContext() as sql_context:
+			result = sql_context.execute(result)
+
+		return result.all()
+
 	def search_by_col(self, col, value):
 		result = self.query.where(
 			getattr(self.model, col).ilike(value)
@@ -39,7 +49,7 @@ class CommonDbOperations:
 
 		return result.all()
 
-	def get_all(self):
+	def get_all_rows(self):
 		with SqlContext() as sql_context:
 			result = sql_context.execute(self.query)
 
@@ -69,12 +79,3 @@ class CommonDbOperations:
 
 		return record
 
-	@staticmethod
-	def activate_deactivate_record(record, is_active=True, commit=True):
-		record.is_active = is_active
-
-		if commit:
-			with SqlContext() as sql_context:
-				sql_context.session.add(record)
-
-		return record

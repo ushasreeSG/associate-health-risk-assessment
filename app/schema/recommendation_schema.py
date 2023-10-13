@@ -5,9 +5,9 @@ from pydantic import BaseModel, Field
 
 
 class RecommendationRequestBaseModel(BaseModel):
-    consequence: str = Field(..., title="Possible Consequence")
+    consequence: str = Field(..., min_length=5)
     recommendation: str = Field(..., min_length=5)
-    combination_id: int = Field(..., le=12, ge=1)
+    recommendation_id: int = Field(..., le=12, ge=1)
 
 
 class RecommendationResponseModel(BaseModel):
