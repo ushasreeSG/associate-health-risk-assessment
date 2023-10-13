@@ -1,6 +1,4 @@
-from sqlalchemy import Column, String, Boolean
-from sqlalchemy.dialects.postgresql import UUID
-
+from sqlalchemy import Column, String
 from app.models.base_model import BaseModel, AuditCreateModel
 
 

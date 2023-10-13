@@ -13,7 +13,6 @@ class QuestionService(metaclass=Singleton):
     @staticmethod
     def create_question(question_request):
         logger.info("Calling the create_question service.")
-        # question = question_request.model_dump()
 
         question = QuestionDBOperations().create_question(
             register_dict=question_request, commit=False

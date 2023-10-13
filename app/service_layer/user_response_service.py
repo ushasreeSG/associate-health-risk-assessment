@@ -29,21 +29,3 @@ class UserResponseService(metaclass=Singleton):
                     )
         logger.info("Records  created successfully")
         return {"status": "success", "message": "User Response created successfully"}
-
-    # @staticmethod
-    # def get_all():
-    #     try:
-    #         user_details = QuestionDBOperations().get_all_questions()
-    #     except Exception as ex:
-    #         logger.error(f"Error: {ex}")
-    #         raise DBFetchFailureException(
-    #             f"An Error has occurred while fetching the questions"
-    #             )
-    #
-    #     if not user_details:
-    #         logger.info(f"No user found with email id - {email}")
-    #         raise RecordNotFoundError(
-    #             f"No user found with email id - {email}"
-    #             )
-    #
-    #     return user_detailss

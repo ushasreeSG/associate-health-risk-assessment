@@ -1,16 +1,6 @@
 from sqlalchemy import Column, String, Boolean, Integer
-from sqlalchemy.dialects.postgresql import UUID
 
 from app.models.base_model import BaseModel, AuditUpdateModel, AuditCreateModel
-from enum import Enum
-
-
-# class CategoryEnum(str, Enum):
-#     I = "Nutrition"
-#     II = "Fitness"
-#     III = "Sleep"
-#     IV = "Stress"
-#     V = "Safety"
 
 
 class Questions(BaseModel, AuditCreateModel, AuditUpdateModel):
