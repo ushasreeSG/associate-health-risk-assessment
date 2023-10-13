@@ -24,14 +24,15 @@ class RecommendationService(metaclass=Singleton):
             logger.error(f"Error: {ex}")
             raise CreateRecordException(
                 "An Error has occurred while creating the new recommendation"
-                )
+            )
 
         logger.info("Recommendation created successfully")
         return {"status": "success", "message": "recommendation created successfully"}
 
     @staticmethod
     def get_by_user_id(user_id):
-        user_response = UserResponseDBOperations.get_all_user_response(user_id)
+        user_response = UserResponseDBOperations().get_all_user_response(user_id)
+        print(user_response)
         combinations_details = CommonService.get_all(repo=CommonDbOperations(Combinations))
         objects_by_combination_id = {}
         for obj_tuple in combinations_details:
@@ -40,22 +41,23 @@ class RecommendationService(metaclass=Singleton):
             if combination_id not in objects_by_combination_id:
                 objects_by_combination_id[combination_id] = []
             objects_by_combination_id[combination_id].append(obj)
+        records = []
+        print(objects_by_combination_id)
         try:
-            store = []
             for combination_id, objects in objects_by_combination_id.items():
                 count = 0
-                for each in objects:
-                    print(each)
+                print(objects)
+                for obj in objects:
                     for each_detail in user_response:
-                        print(each_detail)
-                        if each_detail[0].question_id == each[0].question_id and each[0].combination_flag == each[
-                            0].response_flag:
+                        user_obj = each_detail[0]
+                        print(user_obj)
+                        if user_obj.question_id == obj.question_id and obj.combination_flag == user_obj.response_flag:
                             count = count + 1
-                        else:
-                            break
                 print(count)
+                print(len(objects))
                 if count == len(objects):
-                    CommonService.get_record_by_id(repo=CommonDbOperations(Recommendation), record_id=combination_id)
+                    record = RecommendationDBOperations().get_record_by_id(combination_id)
+                    records.append(record)
         except Exception as ex:
             raise DBFetchFailureException("An Error occurred while fetching the details")
-
+        return record

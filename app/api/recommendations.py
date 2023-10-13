@@ -30,7 +30,7 @@ async def get_recommendation_by_id(recommendation_id: UUID = Path(..., example="
 
     return recommendation
 
-@recommendation_router.get("/{user_id}")
+@recommendation_router.get("/user/{user_id}")
 @error_handler
 async def get_recommendations_user(user_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
     recommendation = RecommendationService.get_by_user_id(str(user_id))

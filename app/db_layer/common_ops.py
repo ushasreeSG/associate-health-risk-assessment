@@ -29,9 +29,9 @@ class CommonDbOperations:
 
 		return result.all()
 
-	def get_by_any_id(self,column_id):
+	def get_by_any_id(self,user_id):
 		result = self.query.where(
-			self.model.column_id == str(column_id)
+			self.model.user_id == str(user_id)
 		)
 
 		with SqlContext() as sql_context:
