@@ -11,7 +11,7 @@ user_router = APIRouter()
 
 @user_router.post("/create", status_code=status.HTTP_201_CREATED,
                   response_model=UserModel,
-                  description="Create User",
+                  summary="Create User",
                   tags=["User API"]
                   )
 @error_handler

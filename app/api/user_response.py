@@ -11,7 +11,7 @@ user_response_router = APIRouter()
 
 
 @user_response_router.post("/create", status_code=status.HTTP_201_CREATED,
-                           description="Record User Response",
+                           summary="Record User Response",
                            tags=["User Response API"]
                            )
 @error_handler

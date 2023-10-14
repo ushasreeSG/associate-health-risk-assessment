@@ -7,4 +7,4 @@ class User(BaseModel, AuditCreateModel):
     __table_args__ = (
         {"schema": "application"},
     )
-    email = Column(String(255), unique=True, nullable=False)
+    email = Column(String(255), unique=True, nullable=True)

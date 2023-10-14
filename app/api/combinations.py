@@ -14,7 +14,7 @@ combination_router = APIRouter()
 
 
 @combination_router.post("/create", status_code=status.HTTP_201_CREATED,
-                         description="Create Combination",
+                         summary="Create Combination",
                          tags=["Combination APIs"]
                          )
 @error_handler
@@ -27,7 +27,7 @@ async def create_combination(request: CombinationRequestBaseModel):
 
 @combination_router.get("/{combination_id}", response_model=CombinationResponseModel,
                         status_code=status.HTTP_200_OK,
-                        description="Get Combination By Id",
+                        summary="Get Combination By Id",
                         tags=["Combination APIs"]
                         )
 @error_handler

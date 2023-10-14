@@ -10,7 +10,7 @@ class RecommendationRequestBaseModel(BaseModel):
     recommendation_id: int = Field(..., le=12, ge=1)
 
 
-class RecommendationResponseModel(BaseModel):
+class RecommendationResponseModel(RecommendationRequestBaseModel):
     id: UUID = Field(..., title="Recommendation id")
 
     class Config:

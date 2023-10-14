@@ -13,7 +13,7 @@ question_router = APIRouter()
 
 
 @question_router.post("/create", status_code=status.HTTP_201_CREATED,
-                      description="Create Question",
+                      summary="Create Question",
                       tags=["Question APIs"]
                       )
 @error_handler
@@ -25,7 +25,7 @@ async def create_question(request: QuestionRequestModel):
 
 
 @question_router.get("/{question_id}", status_code=status.HTTP_200_OK,
-                     description="Get Question By Id",
+                     summary="Get Question By Id",
                      tags=["Question APIs"]
                      )
 @error_handler
