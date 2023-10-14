@@ -30,9 +30,9 @@ async def create_question(request: QuestionRequestModel):
                      )
 @error_handler
 async def get_question_by_id(question_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
-    logger.info("get question by id service called")
+    logger.info("Get question by id service called")
     question_details = CommonService.get_record_by_id(repo=CommonDbOperations(Questions), record_id=question_id)
-    logger.info("get question by id service call completed")
+    logger.info("Get question by id service call completed")
     return question_details
 
 

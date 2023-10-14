@@ -19,9 +19,9 @@ combination_router = APIRouter()
                          )
 @error_handler
 async def create_combination(request: CombinationRequestBaseModel):
-    logger.info("API called - /combination/create")
+    logger.info("Create combination service called")
     combination = CombinationService().create_combination(request)
-    logger.info("/combination/create API call completed.")
+    logger.info("Create combination service call completed.")
     return combination
 
 
@@ -32,7 +32,7 @@ async def create_combination(request: CombinationRequestBaseModel):
                         )
 @error_handler
 async def get_combination_by_id(combination_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
-    logger.info("get combination by id service called")
+    logger.info("Get combination by id service called")
     combination = CommonService.get_record_by_id(repo=CommonDbOperations(Combinations), record_id=combination_id)
-    logger.info("get combination by id service call ended")
+    logger.info("Get combination by id service call ended")
     return combination

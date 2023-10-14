@@ -21,6 +21,7 @@ recommendation_router = APIRouter()
 async def create_recommendation(request: RecommendationRequestBaseModel):
     logger.info("Calling the create recommendation API.")
     combination = RecommendationService().create_recommendation(request)
+    logger.info("Create recommendation API call completed.")
 
     return combination
 
@@ -32,9 +33,9 @@ async def create_recommendation(request: RecommendationRequestBaseModel):
                            )
 @error_handler
 async def get_recommendation_by_id(recommendation_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
-    logger.info("create recommendation service called")
+    logger.info("Create recommendation service called")
     recommendation = CommonService.get_record_by_id(repo=CommonDbOperations(Recommendation), record_id=recommendation_id)
-    logger.info("create recommendation service call completed")
+    logger.info("Create recommendation service call completed")
     return recommendation
 
 
@@ -44,8 +45,8 @@ async def get_recommendation_by_id(recommendation_id: UUID = Path(..., example="
                            )
 @error_handler
 async def get_recommendations_user(user_id: UUID = Path(..., example="123e4567-e89b-12d3-a456-426614174000")):
-    logger.info("get recommendation for user service called")
+    logger.info("Get recommendation for user service called")
     recommendation = RecommendationService.get_by_user_id(str(user_id))
-    logger.info("get recommendation for user service call completed")
+    logger.info("Get recommendation for user service call completed")
 
     return recommendation

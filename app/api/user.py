@@ -1,5 +1,3 @@
-import json
-
 from fastapi import APIRouter, status
 
 from app.db_layer import UserDBOperations

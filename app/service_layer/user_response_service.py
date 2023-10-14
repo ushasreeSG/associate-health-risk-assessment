@@ -1,12 +1,8 @@
 from app.db_layer.sql_context import SqlContext
-from app.lib.custom_exceptions import DuplicateRecordError, CreateRecordException, DBFetchFailureException
-from app.lib.custom_exceptions import RecordNotFoundError
+from app.lib.custom_exceptions import CreateRecordException
 from app.lib.singleton import Singleton
 from app.db_layer import UserResponseDBOperations, CommonDbOperations
 from fastapi.logger import logger
-
-from app.models import Combinations
-from app.service_layer import CommonService
 
 
 class UserResponseService(metaclass=Singleton):

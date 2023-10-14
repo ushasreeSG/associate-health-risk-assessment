@@ -1,15 +1,4 @@
-from enum import Enum
-
-from pydantic import BaseModel, Field, Extra
-from typing import Optional
-
-
-class CategoryEnum(str, Enum):
-    nutrition = "Nutrition"
-    fitness = "Fitness"
-    sleep = "Sleep"
-    stress = "Stress"
-    safety = "Safety"
+from pydantic import BaseModel, Field
 
 
 class QuestionRequestModel(BaseModel):

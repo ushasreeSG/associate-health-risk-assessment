@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field, Extra
 from typing import Optional
-from uuid import UUID
 
 
 class UserModel(BaseModel):

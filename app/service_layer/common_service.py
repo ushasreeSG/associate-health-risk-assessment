@@ -1,6 +1,5 @@
 from app.lib.singleton import Singleton
-from app.lib.custom_exceptions import DBFetchFailureException, RecordNotFoundError, InvalidDataException
-from app.db_layer import CommonDbOperations
+from app.lib.custom_exceptions import DBFetchFailureException, RecordNotFoundError
 
 
 class CommonService(metaclass=Singleton):

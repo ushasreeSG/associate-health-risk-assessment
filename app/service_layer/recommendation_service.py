@@ -4,7 +4,7 @@ from app.lib.singleton import Singleton
 from app.db_layer import RecommendationDBOperations, UserResponseDBOperations, CommonDbOperations
 from fastapi.logger import logger
 
-from app.models import Combinations, Recommendation
+from app.models import Combinations
 from app.service_layer import CommonService
 
 

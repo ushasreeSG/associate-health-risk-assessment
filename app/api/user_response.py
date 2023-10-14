@@ -1,9 +1,7 @@
-import json
-
 from fastapi import APIRouter, status
 
 from app.service_layer import UserResponseService
-from app.schema import UserRequestModel, UserCreateRequest
+from app.schema import UserRequestModel
 from fastapi.logger import logger
 from app.lib.exception_handler import error_handler
 
