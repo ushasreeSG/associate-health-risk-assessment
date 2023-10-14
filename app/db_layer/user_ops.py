@@ -1,5 +1,3 @@
-from sqlalchemy import select
-
 from app.db_layer.sql_context import SqlContext
 from app.lib.singleton import Singleton
 from app.models import User

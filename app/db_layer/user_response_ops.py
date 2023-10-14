@@ -1,6 +1,3 @@
-from sqlalchemy import select
-
-from app.db_layer.sql_context import SqlContext
 from app.lib.singleton import Singleton
 from app.models import UserResponse
 from app.db_layer.common_ops import CommonDbOperations
